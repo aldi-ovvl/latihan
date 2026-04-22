@@ -15,8 +15,8 @@ function sapaNama($nama) {
 }
 
 // Memanggil function dengan parameter
-sapaNama("Andi");
-sapaNama("Budi");
+sapaNama("Arya");
+sapaNama("Afall");
 
 // 3. Function dengan return value
 function tambah($a, $b) {
