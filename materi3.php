@@ -1,58 +1,29 @@
 <?php
-// Contoh Materi Function di PHP
-
-// 1. Function sederhana tanpa parameter
-function sapa() {
-    echo "Halo, selamat datang di materi function!<br>";
+function salam()
+{
+    echo "assalamu'alaykum";
 }
+salam();
 
-// Memanggil function
-sapa();
-
-// 2. Function dengan parameter
-function sapaNama($nama) {
-    echo "Halo, $nama! Selamat belajar PHP.<br>";
+function bagi(int $a,int $b)
+{
+    $jumlah = $a / $b;
+    echo $jumlah;
 }
+bagi (4,6);
+?>
 
-// Memanggil function dengan parameter
-sapaNama("Arya");
-sapaNama("Afall");
+<form method ="post">
+    <input type="number" name="angka1">
+     <input type="number" name="angka2">
+     <button type="submit" name="kirim">kirim</button>
+</form>
 
-// 3. Function dengan return value
-function tambah($a, $b) {
-    return $a + $b;
+
+<?php
+if (isset($_POST['kirim'])){
+    $angka1 =$_POST['angka1'];
+    $angka2 =$_POST['angka2'];
+    bagi ($angka1,$angka2);
 }
-
-// Menggunakan return value
-$hasil = tambah(5, 3);
-echo "Hasil penjumlahan 5 + 3 = $hasil<br>";
-
-// 4. Function dengan parameter default
-function hitungLuas($panjang, $lebar = 10) {
-    return $panjang * $lebar;
-}
-
-echo "Luas dengan panjang 5, lebar default = " . hitungLuas(5) . "<br>";
-echo "Luas dengan panjang 5, lebar 8 = " . hitungLuas(5, 8) . "<br>";
-
-// 5. Function rekursif (contoh faktorial)
-function faktorial($n) {
-    if ($n <= 1) {
-        return 1;
-    } else {
-        return $n * faktorial($n - 1);
-    }
-}
-
-echo "Faktorial 5 = " . faktorial(5) . "<br>";
-
-// 6. Function dengan reference parameter
-function tambahSatu(&$nilai) {
-    $nilai++;
-}
-
-$x = 10;
-echo "Nilai x sebelum: $x<br>";
-tambahSatu($x);
-echo "Nilai x setelah: $x<br>";
 ?>
