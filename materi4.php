@@ -26,3 +26,45 @@ if (isset($_POST['kirim'])) {
 }
 ?>
 
+<table border="1">
+<tr>
+        <th>ID User</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Nama</th>
+        <th>Email</th>
+        <th>Aksi</th>
+
+    </tr>
+
+<?php
+$sql = "SELECT * FROM user";
+$result = $koneksi->query($sql);
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>" . $row["id"] . "</td>";
+        echo "<td>" . $row["username"] . "</td>";
+        echo "<td>" . $password = isset($_POST['password']) ? $_POST['password'] : '';
+        echo "<td>" . $row["nama"] . "</td>";
+        echo "<td>" . $row["email"] . "</td>";
+        echo "<td><a href='materi4.php?id=" . $row["id"] . "'>Hapus</a> | Edit</td>";
+        echo "</tr>";
+    }
+}
+?>
+
+<?php
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $sql = "DELETE FROM user WHERE id = '$id'";
+
+    if ($koneksi->query($sql) === TRUE) {
+        echo "Data berhasil dihapus";
+    } else {
+        echo "Error: " . $sql . "<br>" . $koneksi->error;
+    }
+}
+?>
+</table>
